@@ -1,0 +1,44 @@
+# Dependências
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Arquivos de ambiente
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build
+dist/
+build/
+
+# Logs
+logs
+*.log
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos de IDE/Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Arquivos de teste
+coverage/
+
+# Arquivos temporários
+tmp/
+temp/
+
+# TypeScript
+*.tsbuildinfo 
+*.git_disabled/
+bun.lockb
+query
+robots.txt
