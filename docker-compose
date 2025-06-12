@@ -1,1 +1,61 @@
-docker-compose
+services:
+  database:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data/mongodb:/data/db
+    networks:
+      - app-network
+cache:
+  image: redis:latest
+  ports: 
+    - "6379:6379"
+  networks:
+    - app-network
+
+//rever esse topico - criar um cluster no mongo atlas
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/esx
+      ME_CONFIG_BASICAUTH: false
+    depends_on:
+      - mongo
+    networks:
+      - app-network
+
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    depends_on:
+      - database
+      - cache
+    environment:
+      - MONGO_URI=mongodb://root:example@mongo:27017/esx
+      - REDIS_URL=redis://cache:6379
+    networks:
+      - app-network
+      
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+    depends_on:
+      - backend
+    
+volumes:
+  mongo-data:
+
+networks:
+  app-network:
+    driver: bridge
