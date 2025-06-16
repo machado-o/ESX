@@ -27,8 +27,8 @@ mongoose.connect(mongoUri)
         console.error('Erro ao conectar no MongoDB com a URI principal:', err);
         
         // Só tenta a URI alternativa se a original existir
-        if (mongoUri && mongoUri.includes('mongo:')) {
-            const fallbackUri = mongoUri.replace('mongo:', 'localhost:');
+        if (mongoUri && mongoUri.includes('database:')) {
+            const fallbackUri = mongoUri.replace('database:', 'localhost:');
             console.log('Tentando conexão alternativa com:', fallbackUri);
             
             mongoose.connect(fallbackUri)
