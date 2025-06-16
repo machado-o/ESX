@@ -17,7 +17,7 @@ app.use(express.json());
 app.use('/api', subscribeRoutes);
 
 // Define uma URI padrão caso não exista no .env
-const mongoUri = process.env.MONGO_URI || 'mongodb://localhost:27017/esx';
+const mongoUri = process.env.MONGO_URI || 'mongodb://root:example@database:27017/esx';
 console.log('Tentando conectar ao MongoDB com URI:', mongoUri);
 
 // Tenta conectar ao MongoDB
