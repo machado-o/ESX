@@ -1,6 +1,8 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Code, Zap, Users } from "lucide-react";
+import { useNavigate } from "react-router-dom"; // Adicione esta linha
+
 
 const Hero = () => {
   const scrollToForm = () => {
@@ -13,6 +15,10 @@ const Hero = () => {
     aboutElement?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const handleSaibaMais = () => {
+    navigate("/results");
+  };
+  
   return (
     <section className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden">
       {/* Background decorative elements */}
@@ -89,7 +95,7 @@ const Hero = () => {
             <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
           <Button 
-            onClick={scrollToAbout}
+            onClick={handleSaibaMais}
             variant="outline" 
             size="lg"
             className="border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-gray-900 px-8 py-6 text-lg font-semibold rounded-full transition-all duration-300"
