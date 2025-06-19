@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom"; // Adicione esta linha
 
 
 const Hero = () => {
+  const navigate = useNavigate();
+
   const scrollToForm = () => {
     const formElement = document.getElementById('lead-form');
     formElement?.scrollIntoView({ behavior: 'smooth' });
