@@ -102,7 +102,7 @@ const Hero = () => {
             size="lg"
             className="border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-gray-900 px-8 py-6 text-lg font-semibold rounded-full transition-all duration-300"
           >
-            Saiba Mais
+            Veja os inscritos
           </Button>
         </div>
 
